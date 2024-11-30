@@ -15,8 +15,8 @@ class MainWindow(QMainWindow):
     def paintEvent(self, event):
         painter = QPainter(self)
         pen = QPen()
-        brush = QBrush(QColor("yellow"))
-        for center_x, center_y, radius in self.circles:
+        for center_x, center_y, radius, color in self.circles:
+            brush = QBrush(color)
             painter.setPen(pen)
             painter.setBrush(brush)
             painter.drawEllipse(center_x - radius, center_y - radius, 2 * radius, 2 * radius)
@@ -25,7 +25,8 @@ class MainWindow(QMainWindow):
         diameter = randint(20, 100)
         center_x = randint(diameter // 2, self.width() - diameter // 2)
         center_y = randint(diameter // 2, self.height() - diameter // 2)
-        self.circles.append((center_x, center_y, diameter // 2))
+        color = QColor(randint(0, 255), randint(0, 255), randint(0, 255))
+        self.circles.append((center_x, center_y, diameter // 2, color))
         self.update()
 
 
