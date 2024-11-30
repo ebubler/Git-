@@ -1,11 +1,11 @@
 import sys
 from random import randint
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel
+from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtGui import QPainter, QPen, QBrush, QColor
 from PyQt6.uic import loadUi
 
 
-class MainWindow(QWidget):
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         loadUi('UI.ui', self)
